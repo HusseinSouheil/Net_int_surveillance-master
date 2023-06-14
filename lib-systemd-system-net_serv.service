@@ -1,0 +1,17 @@
+[Unit]
+Description=My Shell Script
+After=systemd-user-sessions.service,systemd-journald.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/net_serv.sh
+Restart=always
+RestartSec=1
+KillMode=process
+IgnoreSIGPIPE=no
+RemainAfterExit=yes
+Environment="DISPLAY=:0" "XAUTHORITY=/home/<user_name>/.Xauthority"
+
+[Install]
+WantedBy=multi-user.target
+
